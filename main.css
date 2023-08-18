@@ -1,0 +1,113 @@
+body{
+    background-color: #CBEDD5;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+#qestion-card{
+    margin-top: 10%;
+    position: relative;
+    /* position: relative; */
+    width: 300px;
+    /* margin: 100px; */
+    padding: 40px;
+    border-radius: 10px;
+    background-color: honeydew;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 
+    0 4px 8px 0 
+    rgba(0, 0, 0, 0.2), 
+    0 6px 20px 0 
+    rgba(0, 0, 0, 0.19);
+}
+
+.item{
+    width: 100%;
+    margin: 5px 0 5px 0;
+}
+
+#foreign-word{
+    font-family: arial;
+    font-size:xx-large;
+    color: #439A97;
+    width: auto;
+}
+
+
+
+#input-field{
+    font-size: x-large;
+    border-radius: 10px;
+    padding: 10px;
+    border: 0px solid;
+    outline: none;
+    color: #439A97;
+    /* background-color: transparent; */
+    background-color: #97DECE;
+    caret-color: #439A97;
+
+    animation-name: passive;
+    animation-duration: 0.3s;
+    /* animation-direction: alternate; */
+}
+::placeholder{
+    color: #439A97;
+}
+
+.placeholder-color-change::placeholder{
+    color: red;
+    animation-name: passive;
+}
+
+
+@keyframes horizontal-shaking {
+    /* from {background-color: red;}
+    to {background-color: yellow;} */
+    0% { transform: translateX(0) }
+    25% { transform: translateX(5px) }
+    50% { transform: translateX(-5px) }
+    75% { transform: translateX(5px) }
+    100% { transform: translateX(0) }
+   }
+
+@keyframes passive {
+    from {background-color: #97DECE;}
+    to {background-color: #97DECE;}
+}
+
+@keyframes recover {
+    from {background-color: pink;}
+    to {background-color: #97DECE;}
+}
+
+@keyframes recover-placeholder {
+    from {background-color: red;}
+    to {background-color: #97DECE;}
+}
+
+
+
+
+
+#buttons{
+    /* position: absolute; */
+    bottom: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.btn {
+    font-size:larger;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #439A97;
+}
