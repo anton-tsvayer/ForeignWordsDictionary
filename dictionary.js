@@ -27,13 +27,13 @@ du_rusDictionary.dict = [
     ['slagen', 'петь'],
     ['arbeiten', 'работать'],
     ['machen', 'делать'],
-    ['löschen', 'удалить'],
+    ['löschen', 'стирать (ластиком)'],
     ['sitzen', 'сидеть'],
     ['hören', 'слышать'],
     ['brauchen', 'нуждаться'],
     ['rauchen', 'курить'],
     ['kochen', 'готовить'],
-    ['waschen', 'стирать'],
+    ['waschen', 'мыть'],
     ['braten', 'жарить'],
     ['backen', 'запекать'],
     ['entschuldigen', 'извиняться'],
@@ -41,35 +41,46 @@ du_rusDictionary.dict = [
     ['schneiden', 'резать'],
     ['öffnen', 'открыть'],
     ['schleißen', 'закрыть'],
-    ['geöffnet', 'быть закрытым'],
-    ['geschlassen', 'быть открытым'],
+    ['geöffnet', 'быть открытым'],
+    ['geschlassen', 'быть закрытым'],
     ['buchstabieren', 'называть по буквам'],
     ['geboren', 'быть родом'],
 ]
 
 var index;
 
+function checkEnter(event){
+    if (event.key === "Enter") {
+        submitAnswer();
+    }
+    else {
+        let inputElement = document.getElementById('input-field');
+        inputElement.addEventListener("keypress", checkEnter, {once: true});
+    }
+}
+
 function chouseNewWord(){
     var length = du_rusDictionary.dict.length;
     index = Math.floor(Math.random() * length);
-    // console.log(index);
     let askedWord = document.getElementById('foreign-word');
-    // console.log(du_rusDictionary.dict[index][0]);
     askedWord.innerText = du_rusDictionary.dict[index][1];
     let inputElement = document.getElementById('input-field');
-    inputElement.addEventListener("keypress", function(event) {
-        if (event.key === "Enter") {
-        //   event.preventDefault();
-          document.getElementById("submit-btn").click();
-        }
-    });
+    inputElement.addEventListener("keypress", checkEnter, {once: true});
+    // inputElement.addEventListener("keyup", function(){
+    //     inputElement.addEventListener("keypress", checkEnter);
+    // })
 }
 
 chouseNewWord();
 
+
 function submitAnswer(){
     let inputElement = document.getElementById('input-field');
+    // inputElement.removeEventListener("keypress", checkEnter);
+
+    console.log(inputElement.value);
     let inputAnswer = inputElement.value;
+    // inputElement.addEventListener("keyup", checkAnswer, );
     checkAnswer(inputAnswer, index);
     // return inputAnswer;
 }
@@ -90,11 +101,12 @@ function checkAnswer(answer, inndex){
         // inputElement.classList.add('placeholder-color-change');
         inputElement.style.animation = 'horizontal-shaking 0.3s 1';
         setInterval(function(){
-            inputElement.style.animation = 'recover 2s 1';
-            // inputElement.style.animation = 'passive';
+            inputElement.style.animation = 'recover 1s 1';
             inputElement.style.backgroundColor = '#97DECE';
             // inputElement.classList.remove('placeholder-color-change');
-        }, 500);
+        }, 100);
+        inputElement.addEventListener("keypress", checkEnter, {once: true});
+        // inputElement.style.animation = 'passive';
     }
 }
 

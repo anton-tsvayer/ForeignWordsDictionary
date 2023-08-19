@@ -8,9 +8,8 @@ body{
 #qestion-card{
     margin-top: 10%;
     position: relative;
-    /* position: relative; */
+    /* max-width: 300px; */
     width: 300px;
-    /* margin: 100px; */
     padding: 40px;
     border-radius: 10px;
     background-color: honeydew;
@@ -20,6 +19,7 @@ body{
     justify-content: center;
     align-items: center;
 
+
     box-shadow: 
     0 4px 8px 0 
     rgba(0, 0, 0, 0.2), 
@@ -28,8 +28,11 @@ body{
 }
 
 .item{
+    display: flex;
+    justify-content: center;
     width: 100%;
-    margin: 5px 0 5px 0;
+    height: 100%;
+    margin: 10px 0 10px 0;
 }
 
 #foreign-word{
@@ -42,6 +45,9 @@ body{
 
 
 #input-field{
+    width: 100%;
+    box-sizing:border-box;
+
     font-size: x-large;
     border-radius: 10px;
     padding: 10px;
@@ -67,8 +73,6 @@ body{
 
 
 @keyframes horizontal-shaking {
-    /* from {background-color: red;}
-    to {background-color: yellow;} */
     0% { transform: translateX(0) }
     25% { transform: translateX(5px) }
     50% { transform: translateX(-5px) }
@@ -96,8 +100,8 @@ body{
 
 
 #buttons{
-    /* position: absolute; */
-    bottom: 0px;
+    /* margin-top: 20px; */
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
