@@ -17,7 +17,7 @@ du_rusDictionary.dict = [
     ['schreiben', 'писать'],
     ['sprechen', 'говорить'],
     ['lernen', 'учиться'],
-    ['weinen', 'понимать'],
+    ['weinen', 'плакать'],
     ['sehen', 'видеть'],
     ['lachen', 'гулять'],
     ['fragen', 'спрашивать'],
@@ -87,6 +87,8 @@ function submitAnswer(){
 
 function checkAnswer(answer, inndex){
     if(answer === du_rusDictionary.dict[inndex][0]){
+        let sound = new Audio('win_sound.m4a');
+        sound.play();
         let inputElement = document.getElementById('input-field');
         inputElement.value = '';
         inputElement.placeholder = 'write answer';
@@ -94,6 +96,8 @@ function checkAnswer(answer, inndex){
         
     }
     else{
+        let sound = new Audio('lose_sound.m4a');
+        sound.play();
         let inputElement = document.getElementById('input-field');
         inputElement.style.backgroundColor = 'pink';
         inputElement.placeholder = 'try again';
